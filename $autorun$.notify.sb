@@ -63,9 +63,6 @@ function HandlerTimer0()
 		//result[0]=result[0]*29/1000
 		//result[1]=result[1]*29/1000
 		//result[2]=result[2]*29/1000
-		//result[0]=100
-		//result[1]=200
-		//result[2]=-300
 	
 		print"\nx:";result[0];" y:";result[1];" z:";result[2];
 	
@@ -92,7 +89,7 @@ function initAdxl312()
 		print "\nI2C open success"
 	endif
 
-	nSlaveAddr=0x1D :  nRegAddr = ADXL312_POWER_CTL_REG : nRegVal = 0x00
+	nSlaveAddr=ADXL312_ADDR :  nRegAddr = ADXL312_POWER_CTL_REG : nRegVal = 0x00
 	rc = I2cWriteReg8(nSlaveAddr, nRegAddr, nRegVal)
 	if rc!= 0 then
 		print "\nFailed to Write to slave/register "; integer.h'rc
